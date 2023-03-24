@@ -34,7 +34,7 @@ namespace ComputerSalon
         }
         private void WindowClosing(object sender, CancelEventArgs e)
         {
-            const string message = "Вы уверены, что хотите закрыть приложение?";
+            const string message = "Закрыть приложение?";
             const string caption = "Form closing";
             var result = MessageBox.Show(message, caption, MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.No)

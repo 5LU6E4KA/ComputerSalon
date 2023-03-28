@@ -1,0 +1,1143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ComputerSalonModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assembling">
+          <Key>
+            <PropertyRef Name="AssemblyId" />
+          </Key>
+          <Property Name="AssemblyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacteristicId" Type="int" Nullable="false" />
+          <Property Name="MonitorId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Buyers">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cases">
+          <Key>
+            <PropertyRef Name="CaseId" />
+          </Key>
+          <Property Name="CaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FormFactor" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PlacementPowerUnit" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CharacteristicsForPC">
+          <Key>
+            <PropertyRef Name="CharacteristicId" />
+          </Key>
+          <Property Name="CharacteristicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcessorId" Type="int" Nullable="false" />
+          <Property Name="MotherboardId" Type="int" Nullable="false" />
+          <Property Name="RamId" Type="int" Nullable="false" />
+          <Property Name="VideocardId" Type="int" Nullable="false" />
+          <Property Name="PowerUnitId" Type="int" Nullable="false" />
+          <Property Name="HddId" Type="int" Nullable="false" />
+          <Property Name="CaseId" Type="int" Nullable="false" />
+          <Property Name="CoolingId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Cooling">
+          <Key>
+            <PropertyRef Name="CoolingId" />
+          </Key>
+          <Property Name="CoolingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TypeOfCoolingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedbacks">
+          <Key>
+            <PropertyRef Name="FeedbackId" />
+          </Key>
+          <Property Name="FeedbackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="BuyerId" Type="int" Nullable="false" />
+          <Property Name="AssemblyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hdds">
+          <Key>
+            <PropertyRef Name="HddId" />
+          </Key>
+          <Property Name="HddId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Volume" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monitors">
+          <Key>
+            <PropertyRef Name="MonitorId" />
+          </Key>
+          <Property Name="MonitorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motherboards">
+          <Key>
+            <PropertyRef Name="MotherboardId" />
+          </Key>
+          <Property Name="MotherboardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Socket" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumberOfMemorySlots" Type="int" Nullable="false" />
+          <Property Name="Chipset" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BuyerId" Type="int" Nullable="false" />
+          <Property Name="AssemblyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PowerUnits">
+          <Key>
+            <PropertyRef Name="PowerUnitId" />
+          </Key>
+          <Property Name="PowerUnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FormFactor" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Processors">
+          <Key>
+            <PropertyRef Name="ProcessorId" />
+          </Key>
+          <Property Name="ProcessorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Socket" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CountOfCores" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rams">
+          <Key>
+            <PropertyRef Name="RamId" />
+          </Key>
+          <Property Name="RamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClockFrequency" Type="int" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesOfCooling">
+          <Key>
+            <PropertyRef Name="TypeOfCoolingId" />
+          </Key>
+          <Property Name="TypeOfCoolingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videocards">
+          <Key>
+            <PropertyRef Name="VideocardId" />
+          </Key>
+          <Property Name="VideocardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VideoMemoryCapacity" Type="int" Nullable="false" />
+          <Property Name="MemoryType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="GraphicsProcessor" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Assemblin__Chara__4D94879B">
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="1" />
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CharacteristicsForPC">
+              <PropertyRef Name="CharacteristicId" />
+            </Principal>
+            <Dependent Role="Assembling">
+              <PropertyRef Name="CharacteristicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Assemblin__Monit__4E88ABD4">
+          <End Role="Monitors" Type="Self.Monitors" Multiplicity="1" />
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitors">
+              <PropertyRef Name="MonitorId" />
+            </Principal>
+            <Dependent Role="Assembling">
+              <PropertyRef Name="MonitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buyers__UserId__534D60F1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Buyers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__CaseI__4BAC3F29">
+          <End Role="Cases" Type="Self.Cases" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cases">
+              <PropertyRef Name="CaseId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="CaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Cooli__4CA06362">
+          <End Role="Cooling" Type="Self.Cooling" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cooling">
+              <PropertyRef Name="CoolingId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="CoolingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__HddId__4AB81AF0">
+          <End Role="Hdds" Type="Self.Hdds" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hdds">
+              <PropertyRef Name="HddId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="HddId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Mothe__46E78A0C">
+          <End Role="Motherboards" Type="Self.Motherboards" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboards">
+              <PropertyRef Name="MotherboardId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="MotherboardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Power__49C3F6B7">
+          <End Role="PowerUnits" Type="Self.PowerUnits" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerUnits">
+              <PropertyRef Name="PowerUnitId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="PowerUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Proce__45F365D3">
+          <End Role="Processors" Type="Self.Processors" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processors">
+              <PropertyRef Name="ProcessorId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="ProcessorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__RamId__47DBAE45">
+          <End Role="Rams" Type="Self.Rams" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rams">
+              <PropertyRef Name="RamId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="RamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Video__48CFD27E">
+          <End Role="Videocards" Type="Self.Videocards" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videocards">
+              <PropertyRef Name="VideocardId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="VideocardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cooling__TypeOfC__44FF419A">
+          <End Role="TypesOfCooling" Type="Self.TypesOfCooling" Multiplicity="1" />
+          <End Role="Cooling" Type="Self.Cooling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfCooling">
+              <PropertyRef Name="TypeOfCoolingId" />
+            </Principal>
+            <Dependent Role="Cooling">
+              <PropertyRef Name="TypeOfCoolingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__UserI__5441852A">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Assem__5070F446">
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assembling">
+              <PropertyRef Name="AssemblyId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="AssemblyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Buyer__4F7CD00D">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Assembly__52593CB8">
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assembling">
+              <PropertyRef Name="AssemblyId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="AssemblyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__BuyerId__5165187F">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ComputerSalonModelContainer">
+          <EntitySet Name="Assembling" EntityType="Self.Assembling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cases" EntityType="Self.Cases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CharacteristicsForPC" EntityType="Self.CharacteristicsForPC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cooling" EntityType="Self.Cooling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hdds" EntityType="Self.Hdds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monitors" EntityType="Self.Monitors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motherboards" EntityType="Self.Motherboards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PowerUnits" EntityType="Self.PowerUnits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Processors" EntityType="Self.Processors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rams" EntityType="Self.Rams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfCooling" EntityType="Self.TypesOfCooling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videocards" EntityType="Self.Videocards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Assemblin__Chara__4D94879B" Association="Self.FK__Assemblin__Chara__4D94879B">
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+            <End Role="Assembling" EntitySet="Assembling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Assemblin__Monit__4E88ABD4" Association="Self.FK__Assemblin__Monit__4E88ABD4">
+            <End Role="Monitors" EntitySet="Monitors" />
+            <End Role="Assembling" EntitySet="Assembling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buyers__UserId__534D60F1" Association="Self.FK__Buyers__UserId__534D60F1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Buyers" EntitySet="Buyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__CaseI__4BAC3F29" Association="Self.FK__Character__CaseI__4BAC3F29">
+            <End Role="Cases" EntitySet="Cases" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Cooli__4CA06362" Association="Self.FK__Character__Cooli__4CA06362">
+            <End Role="Cooling" EntitySet="Cooling" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__HddId__4AB81AF0" Association="Self.FK__Character__HddId__4AB81AF0">
+            <End Role="Hdds" EntitySet="Hdds" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Mothe__46E78A0C" Association="Self.FK__Character__Mothe__46E78A0C">
+            <End Role="Motherboards" EntitySet="Motherboards" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Power__49C3F6B7" Association="Self.FK__Character__Power__49C3F6B7">
+            <End Role="PowerUnits" EntitySet="PowerUnits" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Proce__45F365D3" Association="Self.FK__Character__Proce__45F365D3">
+            <End Role="Processors" EntitySet="Processors" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__RamId__47DBAE45" Association="Self.FK__Character__RamId__47DBAE45">
+            <End Role="Rams" EntitySet="Rams" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Video__48CFD27E" Association="Self.FK__Character__Video__48CFD27E">
+            <End Role="Videocards" EntitySet="Videocards" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cooling__TypeOfC__44FF419A" Association="Self.FK__Cooling__TypeOfC__44FF419A">
+            <End Role="TypesOfCooling" EntitySet="TypesOfCooling" />
+            <End Role="Cooling" EntitySet="Cooling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__UserI__5441852A" Association="Self.FK__Employees__UserI__5441852A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Assem__5070F446" Association="Self.FK__Feedbacks__Assem__5070F446">
+            <End Role="Assembling" EntitySet="Assembling" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Buyer__4F7CD00D" Association="Self.FK__Feedbacks__Buyer__4F7CD00D">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Assembly__52593CB8" Association="Self.FK__Orders__Assembly__52593CB8">
+            <End Role="Assembling" EntitySet="Assembling" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__BuyerId__5165187F" Association="Self.FK__Orders__BuyerId__5165187F">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ComputerSalonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Assembling">
+          <Key>
+            <PropertyRef Name="AssemblyId" />
+          </Key>
+          <Property Name="AssemblyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacteristicId" Type="Int32" Nullable="false" />
+          <Property Name="MonitorId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Assemblin__Chara__4D94879B" FromRole="Assembling" ToRole="CharacteristicsForPC" />
+          <NavigationProperty Name="Monitors" Relationship="Self.FK__Assemblin__Monit__4E88ABD4" FromRole="Assembling" ToRole="Monitors" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedbacks__Assem__5070F446" FromRole="Assembling" ToRole="Feedbacks" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Assembly__52593CB8" FromRole="Assembling" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Buyers">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Buyers__UserId__534D60F1" FromRole="Buyers" ToRole="Users" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedbacks__Buyer__4F7CD00D" FromRole="Buyers" ToRole="Feedbacks" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__BuyerId__5165187F" FromRole="Buyers" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Cases">
+          <Key>
+            <PropertyRef Name="CaseId" />
+          </Key>
+          <Property Name="CaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FormFactor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlacementPowerUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__CaseI__4BAC3F29" FromRole="Cases" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="CharacteristicsForPC">
+          <Key>
+            <PropertyRef Name="CharacteristicId" />
+          </Key>
+          <Property Name="CharacteristicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessorId" Type="Int32" Nullable="false" />
+          <Property Name="MotherboardId" Type="Int32" Nullable="false" />
+          <Property Name="RamId" Type="Int32" Nullable="false" />
+          <Property Name="VideocardId" Type="Int32" Nullable="false" />
+          <Property Name="PowerUnitId" Type="Int32" Nullable="false" />
+          <Property Name="HddId" Type="Int32" Nullable="false" />
+          <Property Name="CaseId" Type="Int32" Nullable="false" />
+          <Property Name="CoolingId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Assembling" Relationship="Self.FK__Assemblin__Chara__4D94879B" FromRole="CharacteristicsForPC" ToRole="Assembling" />
+          <NavigationProperty Name="Cases" Relationship="Self.FK__Character__CaseI__4BAC3F29" FromRole="CharacteristicsForPC" ToRole="Cases" />
+          <NavigationProperty Name="Cooling" Relationship="Self.FK__Character__Cooli__4CA06362" FromRole="CharacteristicsForPC" ToRole="Cooling" />
+          <NavigationProperty Name="Hdds" Relationship="Self.FK__Character__HddId__4AB81AF0" FromRole="CharacteristicsForPC" ToRole="Hdds" />
+          <NavigationProperty Name="Motherboards" Relationship="Self.FK__Character__Mothe__46E78A0C" FromRole="CharacteristicsForPC" ToRole="Motherboards" />
+          <NavigationProperty Name="PowerUnits" Relationship="Self.FK__Character__Power__49C3F6B7" FromRole="CharacteristicsForPC" ToRole="PowerUnits" />
+          <NavigationProperty Name="Processors" Relationship="Self.FK__Character__Proce__45F365D3" FromRole="CharacteristicsForPC" ToRole="Processors" />
+          <NavigationProperty Name="Rams" Relationship="Self.FK__Character__RamId__47DBAE45" FromRole="CharacteristicsForPC" ToRole="Rams" />
+          <NavigationProperty Name="Videocards" Relationship="Self.FK__Character__Video__48CFD27E" FromRole="CharacteristicsForPC" ToRole="Videocards" />
+        </EntityType>
+        <EntityType Name="Cooling">
+          <Key>
+            <PropertyRef Name="CoolingId" />
+          </Key>
+          <Property Name="CoolingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeOfCoolingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__Cooli__4CA06362" FromRole="Cooling" ToRole="CharacteristicsForPC" />
+          <NavigationProperty Name="TypesOfCooling" Relationship="Self.FK__Cooling__TypeOfC__44FF419A" FromRole="Cooling" ToRole="TypesOfCooling" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Employees__UserI__5441852A" FromRole="Employees" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Feedbacks">
+          <Key>
+            <PropertyRef Name="FeedbackId" />
+          </Key>
+          <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerId" Type="Int32" Nullable="false" />
+          <Property Name="AssemblyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Assembling" Relationship="Self.FK__Feedbacks__Assem__5070F446" FromRole="Feedbacks" ToRole="Assembling" />
+          <NavigationProperty Name="Buyers" Relationship="Self.FK__Feedbacks__Buyer__4F7CD00D" FromRole="Feedbacks" ToRole="Buyers" />
+        </EntityType>
+        <EntityType Name="Hdds">
+          <Key>
+            <PropertyRef Name="HddId" />
+          </Key>
+          <Property Name="HddId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__HddId__4AB81AF0" FromRole="Hdds" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="Monitors">
+          <Key>
+            <PropertyRef Name="MonitorId" />
+          </Key>
+          <Property Name="MonitorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Assembling" Relationship="Self.FK__Assemblin__Monit__4E88ABD4" FromRole="Monitors" ToRole="Assembling" />
+        </EntityType>
+        <EntityType Name="Motherboards">
+          <Key>
+            <PropertyRef Name="MotherboardId" />
+          </Key>
+          <Property Name="MotherboardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Socket" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfMemorySlots" Type="Int32" Nullable="false" />
+          <Property Name="Chipset" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__Mothe__46E78A0C" FromRole="Motherboards" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BuyerId" Type="Int32" Nullable="false" />
+          <Property Name="AssemblyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Assembling" Relationship="Self.FK__Orders__Assembly__52593CB8" FromRole="Orders" ToRole="Assembling" />
+          <NavigationProperty Name="Buyers" Relationship="Self.FK__Orders__BuyerId__5165187F" FromRole="Orders" ToRole="Buyers" />
+        </EntityType>
+        <EntityType Name="PowerUnits">
+          <Key>
+            <PropertyRef Name="PowerUnitId" />
+          </Key>
+          <Property Name="PowerUnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FormFactor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__Power__49C3F6B7" FromRole="PowerUnits" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="Processors">
+          <Key>
+            <PropertyRef Name="ProcessorId" />
+          </Key>
+          <Property Name="ProcessorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Socket" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountOfCores" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__Proce__45F365D3" FromRole="Processors" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="Rams">
+          <Key>
+            <PropertyRef Name="RamId" />
+          </Key>
+          <Property Name="RamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClockFrequency" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__RamId__47DBAE45" FromRole="Rams" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <EntityType Name="TypesOfCooling">
+          <Key>
+            <PropertyRef Name="TypeOfCoolingId" />
+          </Key>
+          <Property Name="TypeOfCoolingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cooling" Relationship="Self.FK__Cooling__TypeOfC__44FF419A" FromRole="TypesOfCooling" ToRole="Cooling" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Buyers" Relationship="Self.FK__Buyers__UserId__534D60F1" FromRole="Users" ToRole="Buyers" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__UserI__5441852A" FromRole="Users" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Videocards">
+          <Key>
+            <PropertyRef Name="VideocardId" />
+          </Key>
+          <Property Name="VideocardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VideoMemoryCapacity" Type="Int32" Nullable="false" />
+          <Property Name="MemoryType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GraphicsProcessor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CharacteristicsForPC" Relationship="Self.FK__Character__Video__48CFD27E" FromRole="Videocards" ToRole="CharacteristicsForPC" />
+        </EntityType>
+        <Association Name="FK__Assemblin__Chara__4D94879B">
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="1" />
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CharacteristicsForPC">
+              <PropertyRef Name="CharacteristicId" />
+            </Principal>
+            <Dependent Role="Assembling">
+              <PropertyRef Name="CharacteristicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Assemblin__Monit__4E88ABD4">
+          <End Role="Monitors" Type="Self.Monitors" Multiplicity="1" />
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitors">
+              <PropertyRef Name="MonitorId" />
+            </Principal>
+            <Dependent Role="Assembling">
+              <PropertyRef Name="MonitorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Assem__5070F446">
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assembling">
+              <PropertyRef Name="AssemblyId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="AssemblyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Assembly__52593CB8">
+          <End Role="Assembling" Type="Self.Assembling" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assembling">
+              <PropertyRef Name="AssemblyId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="AssemblyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buyers__UserId__534D60F1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Buyers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedbacks__Buyer__4F7CD00D">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Feedbacks" Type="Self.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__BuyerId__5165187F">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__CaseI__4BAC3F29">
+          <End Role="Cases" Type="Self.Cases" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cases">
+              <PropertyRef Name="CaseId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="CaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Cooli__4CA06362">
+          <End Role="Cooling" Type="Self.Cooling" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cooling">
+              <PropertyRef Name="CoolingId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="CoolingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__HddId__4AB81AF0">
+          <End Role="Hdds" Type="Self.Hdds" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hdds">
+              <PropertyRef Name="HddId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="HddId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Mothe__46E78A0C">
+          <End Role="Motherboards" Type="Self.Motherboards" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboards">
+              <PropertyRef Name="MotherboardId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="MotherboardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Power__49C3F6B7">
+          <End Role="PowerUnits" Type="Self.PowerUnits" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerUnits">
+              <PropertyRef Name="PowerUnitId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="PowerUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Proce__45F365D3">
+          <End Role="Processors" Type="Self.Processors" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processors">
+              <PropertyRef Name="ProcessorId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="ProcessorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__RamId__47DBAE45">
+          <End Role="Rams" Type="Self.Rams" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rams">
+              <PropertyRef Name="RamId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="RamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Character__Video__48CFD27E">
+          <End Role="Videocards" Type="Self.Videocards" Multiplicity="1" />
+          <End Role="CharacteristicsForPC" Type="Self.CharacteristicsForPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videocards">
+              <PropertyRef Name="VideocardId" />
+            </Principal>
+            <Dependent Role="CharacteristicsForPC">
+              <PropertyRef Name="VideocardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cooling__TypeOfC__44FF419A">
+          <End Role="TypesOfCooling" Type="Self.TypesOfCooling" Multiplicity="1" />
+          <End Role="Cooling" Type="Self.Cooling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfCooling">
+              <PropertyRef Name="TypeOfCoolingId" />
+            </Principal>
+            <Dependent Role="Cooling">
+              <PropertyRef Name="TypeOfCoolingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__UserI__5441852A">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assembling" EntityType="Self.Assembling" />
+          <EntitySet Name="Buyers" EntityType="Self.Buyers" />
+          <EntitySet Name="Cases" EntityType="Self.Cases" />
+          <EntitySet Name="CharacteristicsForPC" EntityType="Self.CharacteristicsForPC" />
+          <EntitySet Name="Cooling" EntityType="Self.Cooling" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" />
+          <EntitySet Name="Hdds" EntityType="Self.Hdds" />
+          <EntitySet Name="Monitors" EntityType="Self.Monitors" />
+          <EntitySet Name="Motherboards" EntityType="Self.Motherboards" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="PowerUnits" EntityType="Self.PowerUnits" />
+          <EntitySet Name="Processors" EntityType="Self.Processors" />
+          <EntitySet Name="Rams" EntityType="Self.Rams" />
+          <EntitySet Name="TypesOfCooling" EntityType="Self.TypesOfCooling" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Videocards" EntityType="Self.Videocards" />
+          <AssociationSet Name="FK__Assemblin__Chara__4D94879B" Association="Self.FK__Assemblin__Chara__4D94879B">
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+            <End Role="Assembling" EntitySet="Assembling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Assemblin__Monit__4E88ABD4" Association="Self.FK__Assemblin__Monit__4E88ABD4">
+            <End Role="Monitors" EntitySet="Monitors" />
+            <End Role="Assembling" EntitySet="Assembling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Assem__5070F446" Association="Self.FK__Feedbacks__Assem__5070F446">
+            <End Role="Assembling" EntitySet="Assembling" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Assembly__52593CB8" Association="Self.FK__Orders__Assembly__52593CB8">
+            <End Role="Assembling" EntitySet="Assembling" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buyers__UserId__534D60F1" Association="Self.FK__Buyers__UserId__534D60F1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Buyers" EntitySet="Buyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedbacks__Buyer__4F7CD00D" Association="Self.FK__Feedbacks__Buyer__4F7CD00D">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__BuyerId__5165187F" Association="Self.FK__Orders__BuyerId__5165187F">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__CaseI__4BAC3F29" Association="Self.FK__Character__CaseI__4BAC3F29">
+            <End Role="Cases" EntitySet="Cases" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Cooli__4CA06362" Association="Self.FK__Character__Cooli__4CA06362">
+            <End Role="Cooling" EntitySet="Cooling" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__HddId__4AB81AF0" Association="Self.FK__Character__HddId__4AB81AF0">
+            <End Role="Hdds" EntitySet="Hdds" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Mothe__46E78A0C" Association="Self.FK__Character__Mothe__46E78A0C">
+            <End Role="Motherboards" EntitySet="Motherboards" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Power__49C3F6B7" Association="Self.FK__Character__Power__49C3F6B7">
+            <End Role="PowerUnits" EntitySet="PowerUnits" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Proce__45F365D3" Association="Self.FK__Character__Proce__45F365D3">
+            <End Role="Processors" EntitySet="Processors" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__RamId__47DBAE45" Association="Self.FK__Character__RamId__47DBAE45">
+            <End Role="Rams" EntitySet="Rams" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Character__Video__48CFD27E" Association="Self.FK__Character__Video__48CFD27E">
+            <End Role="Videocards" EntitySet="Videocards" />
+            <End Role="CharacteristicsForPC" EntitySet="CharacteristicsForPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cooling__TypeOfC__44FF419A" Association="Self.FK__Cooling__TypeOfC__44FF419A">
+            <End Role="TypesOfCooling" EntitySet="TypesOfCooling" />
+            <End Role="Cooling" EntitySet="Cooling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__UserI__5441852A" Association="Self.FK__Employees__UserI__5441852A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ComputerSalonModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Assembling">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Assembling">
+              <MappingFragment StoreEntitySet="Assembling">
+                <ScalarProperty Name="AssemblyId" ColumnName="AssemblyId" />
+                <ScalarProperty Name="CharacteristicId" ColumnName="CharacteristicId" />
+                <ScalarProperty Name="MonitorId" ColumnName="MonitorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyers">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Buyers">
+              <MappingFragment StoreEntitySet="Buyers">
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cases">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Cases">
+              <MappingFragment StoreEntitySet="Cases">
+                <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="FormFactor" ColumnName="FormFactor" />
+                <ScalarProperty Name="PlacementPowerUnit" ColumnName="PlacementPowerUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CharacteristicsForPC">
+            <EntityTypeMapping TypeName="ComputerSalonModel.CharacteristicsForPC">
+              <MappingFragment StoreEntitySet="CharacteristicsForPC">
+                <ScalarProperty Name="CharacteristicId" ColumnName="CharacteristicId" />
+                <ScalarProperty Name="ProcessorId" ColumnName="ProcessorId" />
+                <ScalarProperty Name="MotherboardId" ColumnName="MotherboardId" />
+                <ScalarProperty Name="RamId" ColumnName="RamId" />
+                <ScalarProperty Name="VideocardId" ColumnName="VideocardId" />
+                <ScalarProperty Name="PowerUnitId" ColumnName="PowerUnitId" />
+                <ScalarProperty Name="HddId" ColumnName="HddId" />
+                <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+                <ScalarProperty Name="CoolingId" ColumnName="CoolingId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cooling">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Cooling">
+              <MappingFragment StoreEntitySet="Cooling">
+                <ScalarProperty Name="CoolingId" ColumnName="CoolingId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TypeOfCoolingId" ColumnName="TypeOfCoolingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PersonalCode" ColumnName="PersonalCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Feedbacks">
+              <MappingFragment StoreEntitySet="Feedbacks">
+                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="AssemblyId" ColumnName="AssemblyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hdds">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Hdds">
+              <MappingFragment StoreEntitySet="Hdds">
+                <ScalarProperty Name="HddId" ColumnName="HddId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monitors">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Monitors">
+              <MappingFragment StoreEntitySet="Monitors">
+                <ScalarProperty Name="MonitorId" ColumnName="MonitorId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motherboards">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Motherboards">
+              <MappingFragment StoreEntitySet="Motherboards">
+                <ScalarProperty Name="MotherboardId" ColumnName="MotherboardId" />
+                <ScalarProperty Name="Socket" ColumnName="Socket" />
+                <ScalarProperty Name="NumberOfMemorySlots" ColumnName="NumberOfMemorySlots" />
+                <ScalarProperty Name="Chipset" ColumnName="Chipset" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="AssemblyId" ColumnName="AssemblyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PowerUnits">
+            <EntityTypeMapping TypeName="ComputerSalonModel.PowerUnits">
+              <MappingFragment StoreEntitySet="PowerUnits">
+                <ScalarProperty Name="PowerUnitId" ColumnName="PowerUnitId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="FormFactor" ColumnName="FormFactor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processors">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Processors">
+              <MappingFragment StoreEntitySet="Processors">
+                <ScalarProperty Name="ProcessorId" ColumnName="ProcessorId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Socket" ColumnName="Socket" />
+                <ScalarProperty Name="CountOfCores" ColumnName="CountOfCores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rams">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Rams">
+              <MappingFragment StoreEntitySet="Rams">
+                <ScalarProperty Name="RamId" ColumnName="RamId" />
+                <ScalarProperty Name="ClockFrequency" ColumnName="ClockFrequency" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfCooling">
+            <EntityTypeMapping TypeName="ComputerSalonModel.TypesOfCooling">
+              <MappingFragment StoreEntitySet="TypesOfCooling">
+                <ScalarProperty Name="TypeOfCoolingId" ColumnName="TypeOfCoolingId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videocards">
+            <EntityTypeMapping TypeName="ComputerSalonModel.Videocards">
+              <MappingFragment StoreEntitySet="Videocards">
+                <ScalarProperty Name="VideocardId" ColumnName="VideocardId" />
+                <ScalarProperty Name="VideoMemoryCapacity" ColumnName="VideoMemoryCapacity" />
+                <ScalarProperty Name="MemoryType" ColumnName="MemoryType" />
+                <ScalarProperty Name="GraphicsProcessor" ColumnName="GraphicsProcessor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

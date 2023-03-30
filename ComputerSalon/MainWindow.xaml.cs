@@ -25,11 +25,7 @@ namespace ComputerSalon
         public MainWindow()
         {
             InitializeComponent();
-            var timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.IsEnabled = true;
-            timer.Tick += (o, t) => { TimeBlock.Text = DateTime.Now.ToString(); };
-            timer.Start();
+            
             Closing += WindowClosing;
         }
         private void WindowClosing(object sender, CancelEventArgs e)

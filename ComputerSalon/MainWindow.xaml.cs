@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Markup;
+using ComputerSalon.Pages;
 
 namespace ComputerSalon
 {
@@ -25,8 +26,8 @@ namespace ComputerSalon
         public MainWindow()
         {
             InitializeComponent();
-            
             Closing += WindowClosing;
+            MainFrame.Content = new ChoosingRole();
         }
         private void WindowClosing(object sender, CancelEventArgs e)
         {

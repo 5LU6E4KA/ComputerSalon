@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace ComputerSalon.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для BuyersAuthorization.xaml
+    /// Логика взаимодействия для ChoosingRole.xaml
     /// </summary>
-    public partial class BuyersAuthorization : Page
+    public partial class ChoosingRole : Page
     {
-        public BuyersAuthorization()
+        public ChoosingRole()
         {
             InitializeComponent();
         }
 
-        private void EmailBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void BuyerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new BuyersAuthorization());
         }
+        private void EmploeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EmploeesAuthorization());
+        }
+
     }
 }

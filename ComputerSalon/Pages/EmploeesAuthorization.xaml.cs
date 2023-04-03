@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace ComputerSalon.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для BuyersAuthorization.xaml
+    /// Логика взаимодействия для EmploeesAuthorization.xaml
     /// </summary>
-    public partial class BuyersAuthorization : Page
+    public partial class EmploeesAuthorization : Page
     {
-        public BuyersAuthorization()
+        public EmploeesAuthorization()
         {
             InitializeComponent();
-        }
-
-        private void EmailBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

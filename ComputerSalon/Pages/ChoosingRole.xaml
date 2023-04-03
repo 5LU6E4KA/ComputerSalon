@@ -1,0 +1,34 @@
+﻿<Page x:Class="ComputerSalon.Pages.ChoosingRole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerSalon.Pages"
+      mc:Ignorable="d" 
+      Style="{DynamicResource StyleForRegistrationPages}"
+      Title="Выбор роли">
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Компьютерный салон" Style="{DynamicResource TextBlockStyleTitle}"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Button Style="{DynamicResource ButtonStyle}" Content="Покупатель" Click="BuyerButton_Click"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Button Style="{DynamicResource ButtonStyle}" Content="Сотрудник" Click="EmploeeButton_Click" />
+        </Grid>
+    </Grid>
+  
+</Page>

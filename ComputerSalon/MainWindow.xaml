@@ -5,18 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerSalon"
         mc:Ignorable="d"
-        Title="Компьютерный салон Виталев" Height="450" Width="600">
+        Title="Компьютерный салон Виталев" Height="900" Width="900" Background="White" >
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
-            <TextBlock Text="Компьютерный салон" Margin="101,10,109,384"/>
-            <Button Style="{DynamicResource MyButton}" Margin="58,114,60,254" Content="Покупатель"/>
-            <Button Style="{DynamicResource MyButton}" Margin="58,209,60,159" Content="Сотрудник"/>
-        </Grid>
-        
+        <Frame x:Name="MainFrame"/>
     </Grid>
 </Window>

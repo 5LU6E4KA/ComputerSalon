@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerSalon"
         mc:Ignorable="d"
+        
         Title="Компьютерный салон Виталев" Height="900" Width="900" Background="White" >
 
     <Grid>
-        <Frame x:Name="MainFrame"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

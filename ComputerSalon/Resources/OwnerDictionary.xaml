@@ -70,6 +70,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
+                    <Grid>
                     <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -80,6 +81,17 @@
                                   HorizontalAlignment="Left"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
+                    <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                           Visibility="Collapsed" Foreground="Black" FontSize="36"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

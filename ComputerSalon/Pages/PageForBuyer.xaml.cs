@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace ComputerSalon.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для BuyersAuthorization.xaml
+    /// Логика взаимодействия для PageForBuyer.xaml
     /// </summary>
-    public partial class BuyersAuthorization : Page
+    public partial class PageForBuyer : Page
     {
-        public BuyersAuthorization()
+        public PageForBuyer()
         {
             InitializeComponent();
-        }
-
-        private void InputClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RegistrationClick(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Registration());
         }
     }
 }

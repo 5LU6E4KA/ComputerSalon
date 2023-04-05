@@ -71,17 +71,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Grid>
-                    <Border Background="{TemplateBinding Background}"
+                        <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="22">
-                        <ScrollViewer x:Name="PART_ContentHost"
+                            <ScrollViewer x:Name="PART_ContentHost"
                                   Margin="0"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Left"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                    </Border>
-                    <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                        </Border>
+                        <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
                            Visibility="Collapsed" Foreground="Black" FontSize="36"/>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -96,6 +96,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 
 </ResourceDictionary>

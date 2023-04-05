@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ComputerSalon.Pages;
 
 namespace ComputerSalon.Pages
 {
@@ -25,12 +26,12 @@ namespace ComputerSalon.Pages
             InitializeComponent();
         }
 
-        private void InputClick(object sender, RoutedEventArgs e)
+        private void RegistrationClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Registration());
         }
 
-        private void RegistrationClick(object sender, RoutedEventArgs e)
+        private void InputClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Registration());
         }

@@ -24,5 +24,10 @@ namespace ComputerSalon.Pages
         {
             InitializeComponent();
         }
+
+        private void InputClickForEmployee(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

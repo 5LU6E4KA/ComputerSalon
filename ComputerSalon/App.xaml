@@ -6,9 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source= "/Resources/OwnerDictionary.xaml"/>
                 <ResourceDictionary Source="/Resources/TeacherDictionary.xaml"/>
-                
+                <ResourceDictionary Source= "/Resources/OwnerDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:ComputerSalon.Pages"
      
       mc:Ignorable="d" 
-      Style="{DynamicResource StyleForRegistrationPages}"
-      Title="АвторизацияПользователя" Background="White" Height="900" Width="900" > 
+      
+      Title="АвторизацияПользователя" Background="White" >
 
-    <Grid>
+    <Grid Style="{DynamicResource StyleForRegistrationPages}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
@@ -29,7 +29,7 @@
         <TextBlock Text="Авторизация покупателя" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBlockStyleTitle}"/>
 
         <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту"/>
-        <PasswordBox Grid.Row="1" Grid.Column="1"  Tag="Введите электронную почту"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль"/>
         <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите номер телефона"/>
 
         <Button Grid.Row="4" Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Войти" Click ="InputClick"/>

@@ -39,5 +39,18 @@ namespace ComputerSalon
                 e.Cancel = true;
             }
         }
+        private static bool DarkTheme = false;
+
+        private void ResetTheme(object sender, RoutedEventArgs e)
+        {
+            Uri uri;
+            if (!DarkTheme)
+                uri = new Uri(@"..\Resources\OwnerDictionary.xaml", UriKind.Relative);
+            else uri = new Uri(@"..\Resources\TeacherDictionary.xaml", UriKind.Relative);
+            DarkTheme = !(DarkTheme);
+            ResourceDictionary resDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resDict);
+        }
     }
 }

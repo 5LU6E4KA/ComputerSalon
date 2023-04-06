@@ -29,7 +29,7 @@
         <TextBlock Text="Авторизация покупателя" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBlockStyleTitle}"/>
 
         <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1"  Tag="Введите электронную почту"/>
         <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите номер телефона"/>
 
         <Button Grid.Row="4" Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Войти" Click ="InputClick"/>

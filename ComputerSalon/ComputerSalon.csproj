@@ -73,7 +73,6 @@
     <Compile Include="Pages\PageForBuyer.xaml.cs">
       <DependentUpon>PageForBuyer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resources\WatermarkService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

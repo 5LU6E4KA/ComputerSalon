@@ -44,15 +44,15 @@
 
     <Style TargetType="Button" x:Key="MyTheme">
         <Style.Setters>
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Foreground" Value="#dc143c"/>
-            <Setter Property="Content" Value="🌇"/>
+            <Setter Property="Background" Value="#00008b"/>
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="Content" Value="🌙"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="8"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Background="Black">
+                        <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Background="#00008b">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>

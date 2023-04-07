@@ -45,7 +45,7 @@
 
     <Style TargetType="Button" x:Key="MyTheme">
         <Style.Setters>
-            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Background" Value="#00008b"/>
             <Setter Property="Foreground" Value="Yellow"/>
             <Setter Property="Content" Value="🔆"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -53,7 +53,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Background="Black">
+                        <Border CornerRadius="5" BorderBrush="White" BorderThickness="1" Background="#00008b">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
@@ -77,8 +77,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-
 
     <Style TargetType="TextBlock" x:Key="TextBlockStyleTitle">
         <Setter Property="FontFamily" Value="Serif" />

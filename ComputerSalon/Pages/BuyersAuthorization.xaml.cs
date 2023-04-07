@@ -33,7 +33,34 @@ namespace ComputerSalon.Pages
 
         private void InputClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Registration());
+           if (String.IsNullOrEmpty(LoginTB.Text) || String.IsNullOrEmpty(PasswordTB.Text) || String.IsNullOrEmpty(NumberPhoneTB.Text))
+           {
+                { 
+                    MessageBox.Show("Есть незаполненные поля", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+           }
+
+           using (var database = new Entities.Entities())
+           {
+                var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
+               
+                if (buyer == null)
+                {
+                    var result =  MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if(result == MessageBoxResult.Yes)
+                    {
+                        NavigationService.Navigate(new Registration());
+                    }
+                    LoginTB.Text = "";
+                    PasswordTB.Text = "";
+                    NumberPhoneTB.Text = "";
+
+                }
+                else if(buyer.Users.Email == LoginTB.Text && buyer.Users.Password == PasswordTB.Text)
+                {
+                    NavigationService.Navigate(new PageForBuyer());
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ComputerSalon.Pages;
+
+
 
 namespace ComputerSalon.Pages
 {
@@ -33,34 +36,39 @@ namespace ComputerSalon.Pages
 
         private void InputClick(object sender, RoutedEventArgs e)
         {
-           if (String.IsNullOrEmpty(LoginTB.Text) || String.IsNullOrEmpty(PasswordTB.Text) || String.IsNullOrEmpty(NumberPhoneTB.Text))
-           {
-                { 
+            if (String.IsNullOrEmpty(LoginTB.Text) || String.IsNullOrEmpty(PasswordTB.Password) || String.IsNullOrEmpty(NumberPhoneTB.Text))
+            {
+                {
                     MessageBox.Show("Есть незаполненные поля", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-           }
-
-           using (var database = new Entities.Entities())
-           {
-                var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
-               
-                if (buyer == null)
+            }
+            else
+            {
+                using (var database = new Entities.Entities())
                 {
-                    var result =  MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    if(result == MessageBoxResult.Yes)
+                    var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
+
+                    if (buyer == null)
                     {
-                        NavigationService.Navigate(new Registration());
-                    }
-                    LoginTB.Text = "";
-                    PasswordTB.Text = "";
-                    NumberPhoneTB.Text = "";
+                        var result = MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            NavigationService.Navigate(new Registration());
+                        }
+                        LoginTB.Text = "";
+                        PasswordTB.Text = "";
+                        NumberPhoneTB.Text = "";
 
-                }
-                else if(buyer.Users.Email == LoginTB.Text && buyer.Users.Password == PasswordTB.Text)
-                {
-                    NavigationService.Navigate(new PageForBuyer());
+                    }
+                    else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == PasswordTB.Password && buyer.PhoneNumber == NumberPhoneTB.Text)
+                    {
+                        MessageBox.Show($"Доброго врмени суток, {buyer.Users.Name} {buyer.Users.Surname}! У Вас вышло авторизоваться!");
+                        NavigationService.Navigate(new PageForBuyer());
+                    }
                 }
             }
         }
+
+        
     }
 }

@@ -15,9 +15,6 @@
         <Setter Property="FontFamily" Value="Source Sans Pro" />
         <Setter Property="FontSize" Value="40" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="MinWidth" Value="150" />
-        <Setter Property="MinHeight" Value="70" />
-        <Setter Property="Margin" Value="35" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -26,6 +23,42 @@
                         Background="{TemplateBinding Background}" 
                         Padding="{TemplateBinding Padding}" 
                         CornerRadius="30">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Orange" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Orange" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ComeBackStyle">
+        <Setter Property="Background" Value="#D9D9D9" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Content" Value="⬅️"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Command" Value="{Binding NavigateCommand}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        Background="{TemplateBinding Background}" 
+                        Padding="{TemplateBinding Padding}" 
+                        CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="Center" 
                                       VerticalAlignment="Center" />
                     </Border>
@@ -89,14 +122,13 @@
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Margin" Value="7" />
     </Style>
+    
+    
 
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
         <Setter Property="Background" Value="#D9D9D9"/>
-        <Setter Property="Width" Value="620"/>
         <Setter Property="BorderBrush" Value="Black"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Margin" Value="15" />
-        <Setter Property="Height" Value="80"/>
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="FontFamily" Value="Source Sans Pro"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -104,20 +136,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}"
+                    <Border x:Name="PlaceholderContent" Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="22">
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                  Margin="0"
-                                  VerticalAlignment="Center"
-                                  HorizontalAlignment="Left"
-                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </Border>
-                        <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                        <Grid>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="10 0 0 0"/>
+                            <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
                            Visibility="Collapsed" Foreground="Black" FontSize="36"/>
-                    </Grid>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -129,6 +157,21 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="EmptyButton">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True"></Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

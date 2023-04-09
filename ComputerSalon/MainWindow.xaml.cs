@@ -52,5 +52,25 @@ namespace ComputerSalon
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resDict);
         }
+
+        private void ComeBack(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.Content is BuyersAuthorization)
+            {
+                MainFrame.Navigate(new ChoosingRole());
+            }
+            else if (MainFrame.Content is EmploeesAuthorization)
+            {
+                MainFrame.Navigate(new ChoosingRole());
+            }
+            else if (MainFrame.Content is Registration)
+            {
+                MainFrame.Navigate(new BuyersAuthorization());
+            }
+            else if (MainFrame.Content is PageForBuyer)
+            {
+                MainFrame.Navigate(new ChoosingRole());
+            }
+        }
     }
 }

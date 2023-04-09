@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ComputerSalon.Pages"
       mc:Ignorable="d" 
  
-      Title="Авторизация пользователя" Background="White">
+      Title="Авторизация сотрудника" Background="White">
 
     <Grid Style="{DynamicResource StyleForRegistrationPages}">
 
@@ -25,11 +25,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Авторизация покупателя" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBlockStyleTitle}"/>
+        <TextBlock Text="Авторизация сотрудника" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBlockStyleTitle}"/>
 
-        <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите персональный код"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту"  x:Name="LoginTBEmployee"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль" x:Name="PasswordTBEmployee"  MaxLength="6" />
+        <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите персональный код" x:Name="PersonalCodeTBEmployee"/>
 
         <Button Grid.Row="4" Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Войти" Click ="InputClickForEmployee"/>
         

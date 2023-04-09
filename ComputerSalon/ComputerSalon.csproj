@@ -75,6 +75,9 @@
     <Compile Include="Pages\PageForBuyer.xaml.cs">
       <DependentUpon>PageForBuyer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\PasswordBoxWithPasswordViewer.xaml.cs">
+      <DependentUpon>PasswordBoxWithPasswordViewer.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageForEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +183,10 @@
     <Page Include="Resources\OwnerDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\PasswordBoxWithPasswordViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\TeacherDictionary.xaml">
       <SubType>Designer</SubType>
@@ -191,6 +202,9 @@
     </Compile>
     <Compile Include="Pages\EmploeesAuthorization.xaml.cs">
       <DependentUpon>EmploeesAuthorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageForEmployee.xaml.cs">
+      <DependentUpon>PageForEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
@@ -246,6 +260,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\show.png" />
+    <Resource Include="Resources\hiden.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SwitchStyle\" />

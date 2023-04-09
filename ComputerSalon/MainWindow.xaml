@@ -8,19 +8,21 @@
         
         Title="Компьютерный салон Виталев" Height="900" Width="900" Background="White" WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <Grid Style="{DynamicResource StyleForRegistrationPages}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
 
         </Grid.ColumnDefinitions>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Button Grid.Column="0" Grid.Row="0" Style="{DynamicResource MyTheme}" Click="ResetTheme" />    
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" />
+        <Button Grid.Column="2" Grid.Row="0" Style="{DynamicResource MyTheme}" Click="ResetTheme"/>
+        <Button Grid.Column="0" Grid.Row="0" Style="{DynamicResource ComeBackStyle}" Click="ComeBack"/>
 
     </Grid>
 

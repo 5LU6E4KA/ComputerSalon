@@ -4,38 +4,46 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ComputerSalon.Pages"
-     
+      xmlns:uc="clr-namespace:ComputerSalon.Resources"
       mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
       
       Title="АвторизацияПользователя" Background="White">
 
     <Grid Style="{DynamicResource StyleForRegistrationPages}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="200" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Авторизация покупателя" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBlockStyleTitle}"/>
 
-        <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту" x:Name="LoginTB"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль" x:Name="PasswordTB"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите номер телефона" x:Name="NumberPhoneTB"/>
 
-        <Button Grid.Row="4" Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Войти" Click ="InputClick"/>
-        <Button Grid.Row="5" Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Регистрация" Click="RegistrationClick"/>
-       
+        <TextBlock Text="Авторизация покупателя" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource TextBlockStyleTitle}"/>
 
+        <TextBox Grid.Row="1"  Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите электронную почту" x:Name="LoginTB"/>
+        <uc:PasswordBoxWithPasswordViewer Grid.Row="3"  Grid.Column="1"  Placeholder="Введите пароль" x:Name="PasswordTB"/>
+        <!--<TextBox Grid.Row="3"  Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите пароль" x:Name="PasswordTB" MaxLength="6"/>-->
+        <TextBox Grid.Row="5"  Grid.Column="1" Style="{DynamicResource TextBoxStyle}" Tag="Введите номер телефона" x:Name="NumberPhoneTB" />
+
+        <Button  Grid.Row="7"  Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Войти" Click ="InputClick"/>
+        <Button  Grid.Row="9"  Grid.Column="1" Style="{DynamicResource ButtonStyle}" Content="Регистрация" Click="RegistrationClick"/>
 
     </Grid>
 </Page>

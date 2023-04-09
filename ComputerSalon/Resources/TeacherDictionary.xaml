@@ -16,9 +16,6 @@
         <Setter Property="FontFamily" Value="Source Sans Pro" />
         <Setter Property="FontSize" Value="40" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="MinWidth" Value="150" />
-        <Setter Property="MinHeight" Value="70" />
-        <Setter Property="Margin" Value="35" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -36,6 +33,42 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" Value="#00008b" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ComeBackStyle">
+        <Setter Property="Background" Value="Black" />
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="⬅️"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Command" Value="{Binding NavigateCommand}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        Background="{TemplateBinding Background}" 
+                        Padding="{TemplateBinding Padding}" 
+                        CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Orange" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Orange" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -92,12 +125,9 @@
 
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
         <Setter Property="Background" Value="Black"/>
-        <Setter Property="Width" Value="620"/>
         <Setter Property="BorderBrush" Value="White"/>
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Margin" Value="15" />
-        <Setter Property="Height" Value="80"/>
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="FontFamily" Value="Source Sans Pro"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -130,6 +160,21 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="EmptyButton">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True"></Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

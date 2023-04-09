@@ -62,7 +62,7 @@ namespace ComputerSalon.Pages
                     }
                     else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == PasswordTB.Password && buyer.PhoneNumber == NumberPhoneTB.Text)
                     {
-                        MessageBox.Show($"Доброго врмени суток, {buyer.Users.Name} {buyer.Users.Surname}! У Вас вышло авторизоваться!");
+                        MessageBox.Show($"Доброго времени суток, {buyer.Users.Name} {buyer.Users.Patronymic}! У Вас вышло авторизоваться!");
                         NavigationService.Navigate(new PageForBuyer());
                     }
                 }

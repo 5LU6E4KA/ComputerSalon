@@ -60,7 +60,7 @@ namespace ComputerSalon.Pages
                         NumberPhoneTB.Text = "";
 
                     }
-                    else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == PasswordTB.Password && buyer.PhoneNumber == NumberPhoneTB.Text)
+                    else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == Hashing.GetHash(PasswordTB.Password) && buyer.PhoneNumber == NumberPhoneTB.Text)
                     {
                         MessageBox.Show($"Доброго времени суток, {buyer.Users.Name} {buyer.Users.Patronymic}! У Вас вышло авторизоваться!");
                         NavigationService.Navigate(new PageForBuyer());

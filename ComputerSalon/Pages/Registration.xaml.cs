@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ComputerSalon.Pages
 {
@@ -29,7 +31,7 @@ namespace ComputerSalon.Pages
             string patronymic = PatronymicTBRegistration.Text;
 
 
-            if (new[] { login, password, phone, name, surname, patronymic }.Any(x => String.IsNullOrWhiteSpace(x)))
+            if (new[] { login, password, phone, name, surname, patronymic }.Any(x => String.IsNullOrEmpty(x)))
             {
                 MessageBox.Show("Есть незаполненные поля", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
@@ -42,7 +44,7 @@ namespace ComputerSalon.Pages
             }
 
             // Если пользователь не существует, то регистрируем его в системе
-            RegisterUser(new Users { Email = login, Password = password, Name = name, Surname = surname, Patronymic = patronymic }, phone);
+            RegisterUser(new Users { Email = login, Password = Hashing.GetHash(password), Name = name, Surname = surname, Patronymic = patronymic }, phone);
 
             // Отображаем сообщение об успешной регистрации
             MessageBox.Show("Вы успешно зарегистрировались", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -70,5 +72,8 @@ namespace ComputerSalon.Pages
                 MessageBox.Show($"Error!");
             }
         }
+
+       
+
     }
 }

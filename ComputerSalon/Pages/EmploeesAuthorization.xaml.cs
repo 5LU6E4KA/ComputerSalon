@@ -27,7 +27,7 @@ namespace ComputerSalon.Pages
 
         private void InputClickForEmployee(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(LoginTBEmployee.Text) || String.IsNullOrEmpty(PasswordTBEmployee.Text) || String.IsNullOrEmpty(PersonalCodeTBEmployee.Text))
+            if (String.IsNullOrEmpty(LoginTBEmployee.Text) || String.IsNullOrEmpty(PasswordTBEmployee.Password) || String.IsNullOrEmpty(PersonalCodeTBEmployee.Text))
             {
                 {
                     MessageBox.Show("Есть незаполненные поля", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -47,8 +47,9 @@ namespace ComputerSalon.Pages
                             NavigationService.Navigate(new ChoosingRole());
                         }
                     }
-                    else if (employee.Users.Email == LoginTBEmployee.Text && employee.Users.Password == PasswordTBEmployee.Text && employee.PersonalCode == PersonalCodeTBEmployee.Text)
+                    else if (employee.Users.Email == LoginTBEmployee.Text && employee.Users.Password == Hashing.GetHash(PasswordTBEmployee.Password) && employee.PersonalCode == PersonalCodeTBEmployee.Text)
                     {
+                        MessageBox.Show($"Доброго времени суток, {employee.Users.Name} {employee.Users.Patronymic}! У Вас вышло авторизоваться!");
                         NavigationService.Navigate(new PageForEmployee());
                     }
                 }

@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Markup;
 using ComputerSalon.Pages;
+using System.IO;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace ComputerSalon
 {
@@ -55,6 +58,7 @@ namespace ComputerSalon
 
         private void ComeBack(object sender, RoutedEventArgs e)
         {
+
             if (MainFrame.Content is BuyersAuthorization)
             {
                 MainFrame.Navigate(new ChoosingRole());
@@ -71,6 +75,26 @@ namespace ComputerSalon
             {
                 MainFrame.Navigate(new ChoosingRole());
             }
+            else if(MainFrame.Content is PageForEmployee)
+            {
+                MainFrame.Navigate(new EmploeesAuthorization());
+            }
+        }
+
+        private void ExportClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ImportClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportData()
+        {
+            string path = "exportFile.txt";
+            StreamWriter streamWriter = new StreamWriter(path);
         }
     }
 }

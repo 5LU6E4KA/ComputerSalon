@@ -39,12 +39,13 @@
         </Setter>
     </Style>
 
-    <Style TargetType="Button" x:Key="ComeBackStyle">
+    <Style TargetType="Button" x:Key="UpperLineStyle">
         <Setter Property="Background" Value="#D9D9D9" />
         <Setter Property="BorderBrush" Value="Black" />
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Content" Value="⬅️"/>
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontFamily" Value="Source Sans Pro" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Padding" Value="10,5" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="MinWidth" Value="20" />

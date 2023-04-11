@@ -13,16 +13,19 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="30"/>
 
+
         </Grid.ColumnDefinitions>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" />
-        <Button Grid.Column="2" Grid.Row="0" Style="{DynamicResource MyTheme}" Click="ResetTheme"/>
-        <Button Grid.Column="0" Grid.Row="0" Style="{DynamicResource ComeBackStyle}" Click="ComeBack"/>
+        <Button Grid.Column="5" Grid.Row="0" Style="{DynamicResource MyTheme}" Click="ResetTheme"/>
+        <Button Grid.Column="0" Grid.Row="0" Style="{DynamicResource UpperLineStyle}" Click="ComeBack" Content="⬅️" Width="30" Margin="1,2,175,2" />
+        <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource UpperLineStyle}"  Margin ="38,2,102,2" Content="Экспорт" Width ="70" Click="ExportClick" />
+        <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource UpperLineStyle}" Content="Импорт" Width ="70" Click="ImportClick" Margin="113,2,27,2" />
 
     </Grid>
 

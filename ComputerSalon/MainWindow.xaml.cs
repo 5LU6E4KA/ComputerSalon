@@ -18,6 +18,8 @@ using ComputerSalon.Pages;
 using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
+using System.Security.Cryptography;
+using Path = System.IO.Path;
 
 namespace ComputerSalon
 {
@@ -75,7 +77,7 @@ namespace ComputerSalon
             {
                 MainFrame.Navigate(new ChoosingRole());
             }
-            else if(MainFrame.Content is PageForEmployee)
+            else if (MainFrame.Content is PageForEmployee)
             {
                 MainFrame.Navigate(new EmploeesAuthorization());
             }
@@ -83,18 +85,46 @@ namespace ComputerSalon
 
         private void ExportClick(object sender, RoutedEventArgs e)
         {
-
+            ExportData(path);
         }
 
         private void ImportClick(object sender, RoutedEventArgs e)
         {
-
+            ImportData();
         }
 
-        private void ExportData()
+        // Получение пути каталога в компьютере и соединение пути с файлом
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "exportFile.txt");
+
+        private void ExportData(string path)
         {
-            string path = "exportFile.txt";
             StreamWriter streamWriter = new StreamWriter(path);
+
+            using (var context = new Entities.Entities())
+            {
+                foreach (var element in context.Users)
+                {
+                    streamWriter.WriteLine($"{element.Surname} {element.Name} {element.Patronymic} {element.Email}");
+                }
+            }
+            streamWriter.Close();
+            Process.Start("notepad.exe", path);
+        }
+
+        private void ImportData()
+        {
+            OpenFileDialog dialogWindow = new OpenFileDialog();
+            dialogWindow.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            dialogWindow.ShowDialog();
+            if (dialogWindow.FileName == "")
+            {
+                MessageBox.Show("Файл для импорта не выбран!");
+            }
+            else
+            {
+                string fileContent = File.ReadAllText(dialogWindow.FileName);
+                MessageBox.Show(fileContent, "Содержимое файла");
+            }
         }
     }
 }

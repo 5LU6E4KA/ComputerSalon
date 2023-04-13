@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerSalon"
         mc:Ignorable="d"
-        
+        Loaded="Window_Loaded"
         Title="Компьютерный салон Виталев" Height="900" Width="900" Background="White" WindowStartupLocation="CenterScreen">
 
     <Grid Style="{DynamicResource StyleForRegistrationPages}">

@@ -30,18 +30,28 @@ namespace ComputerSalon
                 e.Cancel = true;
             }
         }
-        private static bool DarkTheme = false;
+        private static bool DarkTheme;
 
         private void ResetTheme(object sender, RoutedEventArgs e)
         {
             Uri uri;
-            if (!DarkTheme)
-                uri = new Uri(@"..\Resources\OwnerDictionary.xaml", UriKind.Relative);
-            else uri = new Uri(@"..\Resources\TeacherDictionary.xaml", UriKind.Relative);
+            if (DarkTheme)
+                ChangeTheme("Light");
+            else ChangeTheme("Dark");
+        }
+
+        private void ChangeTheme(string name)
+        {
+            Uri uri = new Uri(@"..\Resources\OwnerDictionary.xaml", UriKind.Relative);
+            if (name == "Dark")
+            {
+                uri = new Uri(@"..\Resources\TeacherDictionary.xaml", UriKind.Relative);
+            }
             DarkTheme = !(DarkTheme);
             ResourceDictionary resDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resDict);
+            Config.Theme = name;
         }
 
         private void ComeBack(object sender, RoutedEventArgs e)
@@ -111,6 +121,13 @@ namespace ComputerSalon
                 string fileContent = File.ReadAllText(dialogWindow.FileName);
                 MessageBox.Show(fileContent, "Содержимое файла");
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ChangeTheme(Config.Theme);
+            if (Config.Theme == "Light") DarkTheme = false;
+            else DarkTheme = true;
         }
     }
 }

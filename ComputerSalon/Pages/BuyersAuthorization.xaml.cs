@@ -48,7 +48,12 @@ namespace ComputerSalon.Pages
                 {
                     var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
 
-                    if (buyer == null)
+                    if(buyer != null && (buyer.Users.Email != LoginTB.Text || buyer.Users.Password != Hashing.GetHash(PasswordTB.Password)))
+                    {
+                        var result = MessageBox.Show("Пользователь под таким именем не найден!", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    }
+
+                    else if (buyer == null)
                     {
                         var result = MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
                         if (result == MessageBoxResult.Yes)
@@ -69,6 +74,6 @@ namespace ComputerSalon.Pages
             }
         }
 
-        
+       
     }
 }

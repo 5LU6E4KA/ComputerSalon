@@ -44,8 +44,8 @@ namespace ComputerSalon.Pages
             }
             else
             {
-                using (var database = new Entities.Entities())
-                {
+                var database = Entities.Entities.GetContext();
+                
                     var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
 
                     if(buyer != null && (buyer.Users.Email != LoginTB.Text || buyer.Users.Password != Hashing.GetHash(PasswordTB.Password)))
@@ -70,7 +70,7 @@ namespace ComputerSalon.Pages
                         MessageBox.Show($"Доброго времени суток, {buyer.Users.Name} {buyer.Users.Patronymic}! У Вас вышло авторизоваться!");
                         NavigationService.Navigate(new PageForBuyer());
                     }
-                }
+                
             }
         }
 

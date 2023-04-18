@@ -35,23 +35,20 @@ namespace ComputerSalon.Pages
             }
             else
             {
-                using (var database = new Entities.Entities())
-                {
-                    var employee = database.Employees.FirstOrDefault(x => x.PersonalCode == this.PersonalCodeTBEmployee.Text);
+                var employee = ComputerSalonDB.Context.Employees.FirstOrDefault(x => x.PersonalCode == this.PersonalCodeTBEmployee.Text);
 
-                    if (employee == null)
+                if (employee == null)
+                {
+                    var result = MessageBox.Show("Сотрудник не найден!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.OK)
                     {
-                        var result = MessageBox.Show("Сотрудник не найден!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Information);
-                        if (result == MessageBoxResult.OK)
-                        {
-                            NavigationService.Navigate(new ChoosingRole());
-                        }
+                        NavigationService.Navigate(new ChoosingRole());
                     }
-                    else if (employee.Users.Email == LoginTBEmployee.Text && employee.Users.Password == Hashing.GetHash(PasswordTBEmployee.Password) && employee.PersonalCode == PersonalCodeTBEmployee.Text)
-                    {
-                        MessageBox.Show($"Доброго времени суток, {employee.Users.Name} {employee.Users.Patronymic}! У Вас вышло авторизоваться!");
-                        NavigationService.Navigate(new PageForEmployee());
-                    }
+                }
+                else if (employee.Users.Email == LoginTBEmployee.Text && employee.Users.Password == Hashing.GetHash(PasswordTBEmployee.Password) && employee.PersonalCode == PersonalCodeTBEmployee.Text)
+                {
+                    MessageBox.Show($"Доброго времени суток, {employee.Users.Name} {employee.Users.Patronymic}! У Вас вышло авторизоваться!");
+                    NavigationService.Navigate(new PageForEmployee());
                 }
             }
         }

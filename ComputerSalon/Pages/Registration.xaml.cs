@@ -13,12 +13,9 @@ namespace ComputerSalon.Pages
 
     public partial class Registration : Page
     {
-        private readonly Entities.Entities context;
-
         public Registration()
         {
             InitializeComponent();
-            context = new Entities.Entities();
         }
 
         private void RegistrationForBuyerClick(object sender, RoutedEventArgs e)
@@ -54,26 +51,23 @@ namespace ComputerSalon.Pages
 
         private bool UserExists(string login)
         {
-            return context.Users.FirstOrDefault(x => x.Email == login) != null;
+            return ComputerSalonDB.Context.Users.FirstOrDefault(x => x.Email == login) != null;
         }
 
         private void RegisterUser(Users user, string numberPhone)
         {
             try
             {
-                context.Users.Add(user);
-                context.SaveChanges();
+                ComputerSalonDB.Context.Users.Add(user);
+                ComputerSalonDB.Context.SaveChanges();
                 var buyer = new Buyers { PhoneNumber = numberPhone, UserId = user.UserId };
-                context.Buyers.Add(buyer);
-                context.SaveChanges();
+                ComputerSalonDB.Context.Buyers.Add(buyer);
+                ComputerSalonDB.Context.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {
                 MessageBox.Show($"Error!");
             }
         }
-
-       
-
     }
 }

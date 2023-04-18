@@ -77,6 +77,18 @@ namespace ComputerSalon
             {
                 MainFrame.Navigate(new EmploeesAuthorization());
             }
+            else if (MainFrame.Content is Videocards)
+            {
+                MainFrame.Navigate(new PageForBuyer());
+            }
+            else if (MainFrame.Content is Processors)
+            {
+                MainFrame.Navigate(new PageForBuyer());
+            }
+            else if (MainFrame.Content is Cases)
+            {
+                MainFrame.Navigate(new PageForBuyer());
+            }
         }
 
         private void ExportClick(object sender, RoutedEventArgs e)
@@ -96,12 +108,9 @@ namespace ComputerSalon
         {
             StreamWriter streamWriter = new StreamWriter(path);
 
-            using (var context = new Entities.Entities())
+            foreach (var element in ComputerSalonDB.Context.Users)
             {
-                foreach (var element in context.Users)
-                {
-                    streamWriter.WriteLine($"{element.Surname} {element.Name} {element.Patronymic} {element.Email}");
-                }
+                streamWriter.WriteLine($"{element.Surname} {element.Name} {element.Patronymic} {element.Email}");
             }
             streamWriter.Close();
             Process.Start("notepad.exe", path);

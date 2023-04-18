@@ -24,5 +24,20 @@ namespace ComputerSalon.Pages
         {
             InitializeComponent();
         }
+
+        private void Videocard_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Videocards());
+        }
+
+        private void Processors_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Processors());
+        }
+
+        private void Cases_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Cases());
+        }
     }
 }

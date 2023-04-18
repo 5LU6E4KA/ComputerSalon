@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 using ComputerSalon.Pages;
 
 
-
 namespace ComputerSalon.Pages
 {
     /// <summary>
@@ -44,36 +43,31 @@ namespace ComputerSalon.Pages
             }
             else
             {
-                var database = Entities.Entities.GetContext();
-                
-                    var buyer = database.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
+                var buyer = ComputerSalonDB.Context.Buyers.FirstOrDefault(x => x.PhoneNumber == this.NumberPhoneTB.Text);
 
-                    if(buyer != null && (buyer.Users.Email != LoginTB.Text || buyer.Users.Password != Hashing.GetHash(PasswordTB.Password)))
-                    {
-                        var result = MessageBox.Show("Пользователь под таким именем не найден!", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    }
+                if(buyer != null && (buyer.Users.Email != LoginTB.Text || buyer.Users.Password != Hashing.GetHash(PasswordTB.Password)))
+                {
+                    var result = MessageBox.Show("Пользователь под таким именем не найден!", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                }
 
-                    else if (buyer == null)
+                else if (buyer == null)
+                {
+                    var result = MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes)
                     {
-                        var result = MessageBox.Show("Пользователь не найден, хотите зарегистрироваться?", "Ошибка авторизации", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            NavigationService.Navigate(new Registration());
-                        }
-                        LoginTB.Text = "";
-                        PasswordTB.Text = "";
-                        NumberPhoneTB.Text = "";
+                        NavigationService.Navigate(new Registration());
+                    }
+                    LoginTB.Text = "";
+                    PasswordTB.Text = "";
+                    NumberPhoneTB.Text = "";
 
-                    }
-                    else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == Hashing.GetHash(PasswordTB.Password) && buyer.PhoneNumber == NumberPhoneTB.Text)
-                    {
-                        MessageBox.Show($"Доброго времени суток, {buyer.Users.Name} {buyer.Users.Patronymic}! У Вас вышло авторизоваться!");
-                        NavigationService.Navigate(new PageForBuyer());
-                    }
-                
+                }
+                else if (buyer.Users.Email == LoginTB.Text && buyer.Users.Password == Hashing.GetHash(PasswordTB.Password) && buyer.PhoneNumber == NumberPhoneTB.Text)
+                {
+                    MessageBox.Show($"Доброго времени суток, {buyer.Users.Name} {buyer.Users.Patronymic}! У Вас вышло авторизоваться!");
+                    NavigationService.Navigate(new PageForBuyer());
+                }
             }
         }
-
-       
     }
 }

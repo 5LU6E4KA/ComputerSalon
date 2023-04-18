@@ -8,7 +8,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageForBuyer">
 
-    <Grid>
+    <Grid Style="{DynamicResource StyleForRegistrationPages}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Покупки" Style="{DynamicResource TextBlockStyleTitle}"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Button Style="{DynamicResource ButtonStyle}" Content="Видеокарты" Click="Videocard_Click"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Button Style="{DynamicResource ButtonStyle}" Content="Процессоры" Click="Processors_Click" />
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="6">
+            <Button Style="{DynamicResource ButtonStyle}" Content="Корпус" Click="Cases_Click" />
+        </Grid>
         
     </Grid>
 </Page>

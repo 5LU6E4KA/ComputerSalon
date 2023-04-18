@@ -75,12 +75,25 @@
     </ApplicationDefinition>
     <Compile Include="Config.cs" />
     <Compile Include="Hashing.cs" />
+    <Compile Include="Pages\Cases.xaml.cs">
+      <DependentUpon>Cases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditProcessors.xaml.cs">
+      <DependentUpon>EditProcessors.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageForBuyer.xaml.cs">
       <DependentUpon>PageForBuyer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Processors.xaml.cs">
+      <DependentUpon>Processors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Videocards.xaml.cs">
+      <DependentUpon>Videocards.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\PasswordBoxWithPasswordViewer.xaml.cs">
       <DependentUpon>PasswordBoxWithPasswordViewer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ComputerSalonDB.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,7 +176,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Cases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ChoosingRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditProcessors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,7 +200,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Processors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Videocards.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

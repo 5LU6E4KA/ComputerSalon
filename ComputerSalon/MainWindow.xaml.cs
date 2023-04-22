@@ -81,11 +81,15 @@ namespace ComputerSalon
             {
                 MainFrame.Navigate(new PageForBuyer());
             }
-            else if (MainFrame.Content is Processors)
+            else if (MainFrame.Content is ProcessorsPage)
             {
                 MainFrame.Navigate(new PageForBuyer());
             }
             else if (MainFrame.Content is Cases)
+            {
+                MainFrame.Navigate(new PageForBuyer());
+            }
+            else if (MainFrame.Content is EditProcessors)
             {
                 MainFrame.Navigate(new PageForBuyer());
             }

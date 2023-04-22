@@ -32,7 +32,7 @@ namespace ComputerSalon.Pages
 
         private void Processors_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Processors());
+            NavigationService.Navigate(new ProcessorsPage());
         }
 
         private void Cases_Click(object sender, RoutedEventArgs e)

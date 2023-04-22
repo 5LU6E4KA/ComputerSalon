@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerSalon.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,49 @@ namespace ComputerSalon.Pages
     /// </summary>
     public partial class EditProcessors : Page
     {
-        public EditProcessors()
+        private ComputerSalon.Entities.Processors _processors = new Entities.Processors();
+
+        public EditProcessors(Processors selectedProcessors)
         {
             InitializeComponent();
+            if(selectedProcessors != null) 
+            {
+                _processors = selectedProcessors;
+            }
+            DataContext = _processors;
+        }
+        private void SaveChanges()
+        {
+            StringBuilder error = new StringBuilder();
+            if (String.IsNullOrEmpty(_processors.Model)) error.AppendLine("Укажите модель!");
+            if (String.IsNullOrEmpty(_processors.CountOfCores.ToString())) error.AppendLine("Укажите количество ядер!");
+            if (String.IsNullOrEmpty(_processors.Socket)) error.AppendLine("Укажите количество сокет!");
+            if (error.Length > 0)
+            {
+                MessageBox.Show(error.ToString());
+                return;
+            }
+
+            if (_processors.ProcessorId == 0)
+            {
+                ComputerSalonDB.Context.Processors.Add(_processors);
+            }
+
+            ComputerSalonDB.Context.SaveChanges();
+            
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SaveChanges();
+                MessageBox.Show("Данные сохранены!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

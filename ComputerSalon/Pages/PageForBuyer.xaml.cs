@@ -23,21 +23,16 @@ namespace ComputerSalon.Pages
         public PageForBuyer()
         {
             InitializeComponent();
+            var currents = ComputerSalonDB.Context.Assembling.ToList().Select(x => new
+            {
+                Name = x.Name,
+                Quantity = x.CharacteristicsForPC.Quantity,
+                Photo = x.Photo,
+                Price = x.CharacteristicsForPC.Price + x.Monitors.Price
+            }).ToList();
+            ListProducts.ItemsSource = currents;
         }
 
-        private void Videocard_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Videocards());
-        }
-
-        private void Processors_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ProcessorsPage());
-        }
-
-        private void Cases_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Cases());
-        }
+       
     }
 }

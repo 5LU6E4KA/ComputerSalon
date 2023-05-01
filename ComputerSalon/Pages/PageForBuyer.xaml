@@ -8,34 +8,49 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageForBuyer">
 
-    <Grid Style="{DynamicResource StyleForRegistrationPages}">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.2*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock Text="Покупки" Style="{DynamicResource TextBlockStyleTitle}"/>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="2">
-            <Button Style="{DynamicResource ButtonStyle}" Content="Видеокарты" Click="Videocard_Click"/>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="4">
-            <Button Style="{DynamicResource ButtonStyle}" Content="Процессоры" Click="Processors_Click" />
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="6">
-            <Button Style="{DynamicResource ButtonStyle}" Content="Корпус" Click="Cases_Click" />
-        </Grid>
-        
+        <ListView Grid.Row="1" Name="ListProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Width="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="310"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Width="300" Height="250" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Image.Source>
+                                <Binding Path="Photo">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>/Photos/default.jpg</ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text ="{Binding Name}" VerticalAlignment="Top" TextAlignment="Center" Width="300"
+                                   TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5 5" 
+                                   FontSize="18" Grid.Row="0"/>
+                        <TextBlock Text ="{Binding Price, StringFormat={}{0:N2} руб}" Grid.Row="1" Margin="5 5 5 15" HorizontalAlignment="Center" 
+                                   FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom"/>
+                        <TextBlock Text ="{Binding Quantity, StringFormat={}Количество сборок: {0}}" Grid.Row="3" HorizontalAlignment="Left" FontSize="18"/>
+                        <Button Content="Купить" Grid.Row="3" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle}"/>
+                        
+                    </Grid>  
+                </DataTemplate> 
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
+
+
+
 </Page>

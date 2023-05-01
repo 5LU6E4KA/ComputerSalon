@@ -77,22 +77,6 @@ namespace ComputerSalon
             {
                 MainFrame.Navigate(new EmploeesAuthorization());
             }
-            else if (MainFrame.Content is Videocards)
-            {
-                MainFrame.Navigate(new PageForBuyer());
-            }
-            else if (MainFrame.Content is ProcessorsPage)
-            {
-                MainFrame.Navigate(new PageForBuyer());
-            }
-            else if (MainFrame.Content is Cases)
-            {
-                MainFrame.Navigate(new PageForBuyer());
-            }
-            else if (MainFrame.Content is EditProcessors)
-            {
-                MainFrame.Navigate(new PageForBuyer());
-            }
         }
 
         private void ExportClick(object sender, RoutedEventArgs e)

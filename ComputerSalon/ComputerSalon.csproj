@@ -75,20 +75,8 @@
     </ApplicationDefinition>
     <Compile Include="Config.cs" />
     <Compile Include="Hashing.cs" />
-    <Compile Include="Pages\Cases.xaml.cs">
-      <DependentUpon>Cases.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\EditProcessors.xaml.cs">
-      <DependentUpon>EditProcessors.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageForBuyer.xaml.cs">
       <DependentUpon>PageForBuyer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ProcessorsPage.xaml.cs">
-      <DependentUpon>ProcessorsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Videocards.xaml.cs">
-      <DependentUpon>Videocards.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\PasswordBoxWithPasswordViewer.xaml.cs">
       <DependentUpon>PasswordBoxWithPasswordViewer.xaml</DependentUpon>
@@ -176,15 +164,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Cases.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\ChoosingRole.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\EditProcessors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,15 +180,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ProcessorsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Registration.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Videocards.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +264,17 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Photos\default.jpg" />
+    <Resource Include="Photos\sborka3.jpg" />
+    <Resource Include="Photos\sborka10.jpg" />
+    <Resource Include="Photos\sborka4.jpg" />
+    <Resource Include="Photos\sborka5.jpg" />
+    <Resource Include="Photos\sborka6.jpg" />
+    <Resource Include="Photos\sborka7.jpg" />
+    <Resource Include="Photos\sborka8jpg.jpg" />
+    <Resource Include="Photos\sborka9.jpg" />
+    <Resource Include="Photos\sborka2.jpg" />
+    <Resource Include="Photos\sborka1.jpg" />
     <Resource Include="Resources\show.png" />
     <Resource Include="Resources\hiden.png" />
   </ItemGroup>

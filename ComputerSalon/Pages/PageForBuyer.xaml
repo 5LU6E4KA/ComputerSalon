@@ -49,6 +49,13 @@
                 </DataTemplate> 
             </ListView.ItemTemplate>
         </ListView>
+        <TextBlock  Text="Введите имя сборки:" HorizontalAlignment="Left" Grid.Row="0" Margin="2 0 0 0"/>
+        <TextBox Width="150" HorizontalAlignment="Left" Grid.Row="0" Margin="125 0 0 0" TextChanged="TextBoxSearch_TextChanged" x:Name="TextBoxSearch"/>
+        <ComboBox x:Name="Filter" Width="150" Grid.Row="0"   Margin="150 0 0 0" SelectionChanged="Filter_SelectionChanged">
+            <TextBlock Text="По возрастанию"/>
+            <TextBlock Text="По убыванию"/>
+        </ComboBox>
+        <Button Content="Очистить фильтр" x:Name="ClearFilter" Click="ClearFilter_Click" Width="100" Margin="1500 0 0 0"/>
     </Grid>
 
 
